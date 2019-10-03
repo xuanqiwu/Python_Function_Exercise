@@ -73,3 +73,7 @@ def reverse_sentence(sentence):
     return ' '.join(out)
 print(reverse_sentence('We are ready'))
     
+#almost there
+def almost_there(a):
+    return abs(a-100)<=10 or abs(a-200)<=10
+print(almost_there(201))
