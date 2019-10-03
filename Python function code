@@ -1,0 +1,75 @@
+'''
+
+                            Online Python Compiler.
+                Code, Compile, Run and Debug python program online.
+Write your code in this editor and press "Run" button to execute it.
+
+'''
+
+def myfunc(string):
+    new_letter=""
+    for i in range(len(string)):
+        if i%2 == 0:
+            new_letter=new_letter+string[i].lower()
+        else:
+            new_letter=new_letter+string[i].upper()
+    return new_letter
+print(myfunc('elephant'))
+
+def evenodd(string):
+    out=[]
+    for i in range(len(string)):
+        if i%2==0:
+            out.append(string[i].upper())
+        else:
+            out.append(string[i].lower())
+    return ''.join(out)
+print(evenodd('encounter'))
+
+#warm up
+def myfunc(a,b):
+    if a%2==0 and b%2==0:
+        if a<=b:
+            return a
+        else:
+            return b
+    else:
+        if a>=b:
+            return a 
+        else:
+            return b 
+print(myfunc(9,7))
+
+#two word string
+def animal_crackers(string):
+    return string.split()[0][0].upper()==string.split()[1][0].upper()
+print(animal_crackers('Cat Cat'))
+        
+def make_twenty(a,b):
+    if sum((a,b))==20 or (a==20 or b==20):
+        return True
+    else:
+        return False
+print(make_twenty(0,20))
+
+#capitalize 1st and 4th letter 
+def old_macdonald(string):
+    out=[]
+    for i in range(len(string)):
+        if i==0 or i == 3:
+            out.append(string[i].upper())
+        else:
+            out.append(string[i].lower())
+    return ''.join(out)
+print(old_macdonald('Dangerous'))
+
+#reverse the sentence
+def reverse_sentence(sentence):
+    word_list=sentence.split()
+    word_list.reverse()
+    out=[]
+    for i in range(len(word_list)):
+        out.append(word_list[i])
+    return ' '.join(out)
+print(reverse_sentence('We are ready'))
+    
