@@ -26,6 +26,7 @@ def evenodd(string):
     return ''.join(out)
 print(evenodd('encounter'))
 
+
 #warm up
 def myfunc(a,b):
     if a%2==0 and b%2==0:
@@ -40,6 +41,7 @@ def myfunc(a,b):
             return b 
 print(myfunc(9,7))
 
+
 #two word string
 def animal_crackers(string):
     return string.split()[0][0].upper()==string.split()[1][0].upper()
@@ -51,6 +53,8 @@ def make_twenty(a,b):
     else:
         return False
 print(make_twenty(0,20))
+#use min() and max()
+
 
 #capitalize 1st and 4th letter 
 def old_macdonald(string):
@@ -62,6 +66,15 @@ def old_macdonald(string):
             out.append(string[i].lower())
     return ''.join(out)
 print(old_macdonald('Dangerous'))
+
+#method 2:
+def old_macdonald(string):
+    if len(string)>3:
+        return string[:3].capitalize()+string[3:].capitalize()
+    else:
+        return "String too short!"
+print(old_macdonald('Dangerous'))
+
 
 #reverse the sentence
 def reverse_sentence(sentence):
@@ -77,3 +90,104 @@ print(reverse_sentence('We are ready'))
 def almost_there(a):
     return abs(a-100)<=10 or abs(a-200)<=10
 print(almost_there(201))
+
+def has_33(*args):
+    out=[]
+    for i in range((len(args)-1)):
+        if args[i]==3 and args[i+1]==3:
+            out.append(True)
+        else:
+            out.append(False)
+            
+    if True in out:
+        return True
+    else:
+        return False
+print(has_33(1,3,1,3,3))
+
+#simple code
+def has_33(*args):
+    for i in range((len(args)-1)):
+        if args[i]==3 and args[i+1]==3:
+            return True
+    return False
+print(has_33(1,3,1,3,3))
+
+
+#multiply letter by 3
+def paper_doll(string):
+    out=[]
+    for i in range(len(string)):
+        out.append(string[i]*3)
+    return ''.join(out)
+print(paper_doll('Stupid'))
+
+#method 2
+def paper_doll(text):
+    result=''
+    for letter in text:
+        result += letter*3
+    return result
+    
+    
+def blackjack(a,b,c):
+    if sum((a,b,c))<=21:
+        return sum((a,b,c))
+    elif sum((a,b,c))>21:
+        if a==11 or b==11 or c==11:
+            return sum((a,b,c))-10;
+        else:
+            return "BUST"
+print(blackjack(9,9,11))
+
+def summer_69(arr):
+    
+    if 6 in arr:
+        index_6=arr.index(6)
+        index_9=arr.index(9)
+        return sum(arr[:index_6])+sum(arr[(index_9+1): (len(arr))])
+    else:
+        return sum(arr)
+print(summer_69([2, 1, 6, 9, 11]))
+
+def spy_game(nums):
+    index_0=[]
+    index_7=[]
+    if 0 in nums and 7 in nums:
+        for i in range(len(nums)):
+            if nums[i]==0:
+               index_0.append(i)
+            if nums[i]==7:
+                index_7.append(i)
+        if len(index_0)>=2:
+            if index_0[1]<index_7[0]:
+                return True
+            else:
+                return False
+        else:
+            return False
+    else:
+        return False
+print(spy_game([1,5,2,0,7,5,0]))
+
+def count_primes(num):
+    out=[]
+    for i in range((num+1)):
+        if i>2:
+            for n in range(2,i):
+                if i%n==0:
+                    out.append(i)
+                    break
+                else:
+                    pass
+    return (num-len(out)-1)
+print(count_primes(100))
+
+def print_big(letter):
+    pattern_1=' '*2+letter+' '*2
+    pattern_2=' '+letter+' '+letter+' '
+    pattern_3=letter*5
+    pattern_4=letter+' '*3+letter
+    pattern_dic={'pattern1':pattern_1, 'pattern2':pattern_2,'pattern3':pattern_3,'pattern4':pattern_4}
+    print(pattern_dic['pattern1'] + "\n" + pattern_dic['pattern2']+ "\n"+pattern_dic['pattern3']+ "\n"+pattern_dic['pattern4']+ "\n"+pattern_dic['pattern4'])
+print_big('a')
